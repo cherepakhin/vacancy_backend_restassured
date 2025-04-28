@@ -15,7 +15,8 @@ import static io.restassured.RestAssured.given;
 // for test echo.feature
 
 public class EchoSteps {
-    private static final String BASE_URL = "http://127.0.0.1:8080/api/echo";
+//    private static final String BASE_URL = "http://127.0.0.1:8080/api/echo";
+    private static final String BASE_URL = Setting.BASE_URL;
     private Response response;
     private RequestSpecification request;
 

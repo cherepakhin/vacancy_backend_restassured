@@ -1,7 +1,7 @@
 Feature: Echo test
   I want to interact with the Vacancy REST API
 
-  Scenario Outline: Send message and check return
+  Scenario Outline: Send message and check return (tests with many examples)
     Given Given. the Echo API is available. Message = "<send>".
     When When. I request GET echo MESSAGE. Message = "<send>".
     Then The response equal "<answer>".

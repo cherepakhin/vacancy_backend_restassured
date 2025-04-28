@@ -1,4 +1,4 @@
-package stepdefinitions;
+package ru.perm.v.vacancy_backend_restassured.stepdefinitions;
 
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;

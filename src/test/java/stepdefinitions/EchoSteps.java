@@ -46,7 +46,8 @@ public class EchoSteps {
 
     @Then("Then stage. The response equal {string}.")
     public void echo_equal(String message) {
-        logger.info("Then stage");
-        assert response.getBody().equals(message);
+        logger.info("Then stage. Message from script=" + message);
+        logger.info("Then stage. response.getBody()=" + response.getBody().print());
+        assert response.getBody().asString().equals(message);
     }
 }

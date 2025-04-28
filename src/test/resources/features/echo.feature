@@ -10,7 +10,7 @@ Feature: Echo test
       | AAA  | AAA    |
       | BBB  | BBB    |
 
-  Scenario: Send ONE message and check return
+  Scenario: Send ONE message and check return with param. "TEST_MESSAGE" - param of test
     Given Given. the Echo API is available. Message = "TEST_MESSAGE".
     When When. I request GET echo MESSAGE. Message = "TEST_MESSAGE".
     Then Then stage. The response equal "TEST_MESSAGE".

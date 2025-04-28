@@ -24,6 +24,18 @@ Feature: Vacancy API Operations
     Then the response status should be 200
     And the response should have title "Vacancy 1 Company 1"
 
+  Scenario: Search vacancies by criteria "Vacancy 1 Company 1"
+    When I search for vacancies with title containing "Vacancy 1 Company 1"
+    Then the response status should be 200
+    And the response should contain 1 vacancies
+    And vacancy 1 should have title "Vacancy 1 Company 1"
+
+  Scenario: Search vacancies by criteria "Vacancy 1 Company 2"
+    When I search for vacancies with title containing "Vacancy 1 Company 2"
+    Then the response status should be 200
+    And the response should contain 1 vacancies
+    And vacancy 3 should have title "Vacancy 1 Company 2"
+
 #  Scenario: Create new vacancy
 #    Given I have a new vacancy with:
 #      | title       | description         |
@@ -45,14 +57,3 @@ Feature: Vacancy API Operations
 #    Then the response status should be 200
 #    And vacancy 2 should no longer exist
 
-  Scenario: Search vacancies by criteria "Vacancy 1 Company 1"
-    When I search for vacancies with title containing "Vacancy 1 Company 1"
-    Then the response status should be 200
-    And the response should contain 1 vacancies
-    And vacancy 1 should have title "Vacancy 1 Company 1"
-
-  Scenario: Search vacancies by criteria "Vacancy 1 Company 2"
-    When I search for vacancies with title containing "Vacancy 1 Company 2"
-    Then the response status should be 200
-    And the response should contain 1 vacancies
-    And vacancy 3 should have title "Vacancy 1 Company 2"

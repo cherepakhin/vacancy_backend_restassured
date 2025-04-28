@@ -15,8 +15,8 @@ import static io.restassured.RestAssured.given;
 // for test echo.feature
 
 public class EchoSteps {
-//    private static final String BASE_URL = "http://127.0.0.1:8080/api/echo";
-    private static final String BASE_URL = Setting.BASE_URL;
+    // moved to Settings.java
+    // private static final String BASE_URL = "http://127.0.0.1:8080/api/echo";
     private Response response;
     private RequestSpecification request;
 
@@ -24,7 +24,7 @@ public class EchoSteps {
 
     @Before
     public void setup() {
-        RestAssured.baseURI = BASE_URL;
+        RestAssured.baseURI = Setting.BASE_URL + "/echo";
         request = given()
                 .header("Content-Type", "text/plain");
     }

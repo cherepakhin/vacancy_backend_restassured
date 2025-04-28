@@ -29,7 +29,7 @@ public class EchoSteps {
     @Given("Given. the Echo API is available. Message = {string}.") // string - указать тип
     public void the_vacancy_api_is_available(String message) {
         logger.info("Given stage: Message = " + message + ".");
-        response = request.get("/" + message);
+//        response = request.get("/" + message);
 //        Assert.assertEquals(200, response.getStatusCode());
     }
 

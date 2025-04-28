@@ -29,8 +29,6 @@ public class EchoSteps {
     @Given("Given. the Echo API is available. Message = {string}.") // string - указать тип
     public void the_vacancy_api_is_available(String message) {
         logger.info("Given stage: Message = " + message + ".");
-//        response = request.get("/" + message);
-//        Assert.assertEquals(200, response.getStatusCode());
     }
 
     @When("When. I request GET echo MESSAGE. Message = {string}.")
@@ -42,10 +40,8 @@ public class EchoSteps {
     @Then("Then stage. Status OK.")
     public void statusOk() {
         logger.info("Then stage");
-
-//        assertThat("aaa".equals("bbb"));
         assert "aaa".equals("bbb");
-//        assert response.getStatusCode() == 201;
+        assert response.getStatusCode() == 201;
     }
 
     @Then("Then stage. The response equal {string}.")

@@ -17,6 +17,7 @@ Feature: Vacancy API Operations
     Then the response status should be 200
     And the response should contain 4 vacancies
     And vacancy 1 should have title "Vacancy 1 Company 1"
+    And vacancy 2 should have title "Vacancy 2 Company 1"
 
   Scenario: Get specific vacancy
     When I request vacancy with id 1

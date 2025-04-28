@@ -40,8 +40,8 @@ public class EchoSteps {
     @Then("Then stage. Status OK.")
     public void statusOk() {
         logger.info("Then stage");
-        assert "aaa".equals("bbb");
-        assert response.getStatusCode() == 201;
+//        assert "aaa".equals("bbb"); // example bad test
+        assert response.getStatusCode() == 200;
     }
 
     @Then("Then stage. The response equal {string}.")

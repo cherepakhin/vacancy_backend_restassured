@@ -15,6 +15,7 @@ import java.util.Map;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
 
+// for test vacancy_api.feature
 public class VacancySteps {
     private static final String BASE_URL = "http://127.0.0.1:8080/api/vacancy";
     private Response response;

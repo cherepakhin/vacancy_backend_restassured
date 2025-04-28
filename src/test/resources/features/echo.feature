@@ -4,15 +4,17 @@ Feature: Echo test
   Scenario Outline: Send message and check return
     Given Given. the Echo API is available. Message = "<send>".
     When When. I request GET echo MESSAGE. Message = "<send>".
-    Then Then stage. The response equal "<answer>".
+    Then The response equal "<answer>".
+    And  Status OK.
     Examples:
       | send | answer |
       | AAA  | AAA    |
       | BBB  | BBB    |
 
+
   Scenario: Send ONE message and check return with param. "TEST_MESSAGE" - param of test
     Given Given. the Echo API is available. Message = "TEST_MESSAGE".
     When When. I request GET echo MESSAGE. Message = "TEST_MESSAGE".
-    Then Then stage. The response equal "TEST_MESSAGE".
-    And  Then stage. Status OK.
+    Then The response equal "TEST_MESSAGE".
+    And  Status OK.
 

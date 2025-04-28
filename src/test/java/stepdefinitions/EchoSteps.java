@@ -12,6 +12,8 @@ import org.slf4j.LoggerFactory;
 
 import static io.restassured.RestAssured.given;
 
+// for test echo.feature
+
 public class EchoSteps {
     private static final String BASE_URL = "http://127.0.0.1:8080/api/echo";
     private Response response;
@@ -37,14 +39,14 @@ public class EchoSteps {
         response = request.get("/"+ message);
     }
 
-    @Then("Then stage. Status OK.")
+    @Then("Status OK.")
     public void statusOk() {
         logger.info("Then stage");
 //        assert "aaa".equals("bbb"); // example bad test
         assert response.getStatusCode() == 200;
     }
 
-    @Then("Then stage. The response equal {string}.")
+    @Then("The response equal {string}.")
     public void echo_equal(String message) {
         logger.info("Then stage. Message from script=" + message);
         logger.info("Then stage. response.getBody()=" + response.getBody().print());

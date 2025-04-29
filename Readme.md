@@ -15,7 +15,7 @@ Rest тесты для проекта vacancy_backend
 ![Результаты тестов](doc/test_result.png "Результаты тестов")
 
 
-Cucumber для
+Cucumber для Before, Given, Then, When:
 
 ````java
 import io.cucumber.java.Before;

@@ -3,6 +3,12 @@ Rest тесты для проекта vacancy_backend
 
 Перед проведением тестов запустить проект [vacancy_backend](https://github.com/cherepakhin/family/tree/master/src/main/resources/db/migration).
 
+Адрес backend указан в [ru.perm.v.vacancy_backend_restassured.stepdefinitions.Setting](src/test/ru/perm/v/vacancy_backend_restassured/stepdefinitions/Setting.java)
+
+````java
+String BASE_URL = "http://127.0.0.1:8090/api";
+````
+
 Используется RestAssured и Cucumber
 
 Прведение тестов:

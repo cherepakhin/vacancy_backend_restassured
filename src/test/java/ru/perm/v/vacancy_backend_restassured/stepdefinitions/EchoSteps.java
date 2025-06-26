@@ -25,16 +25,17 @@ public class EchoSteps {
     @Before
     public void setup() {
         RestAssured.baseURI = Setting.BASE_URL + "/echo";
+        logger.info("RestAssured.baseURI = " + RestAssured.baseURI);
         request = given()
                 .header("Content-Type", "text/plain");
     }
 
-    @Given("Given. the Echo API is available. Message = {string}.") // string - указать тип
+    @Given("The Echo API is available. Message = {string}.") // string - указать тип
     public void the_vacancy_api_is_available(String message) {
         logger.info("Given stage: Message = " + message + ".");
     }
 
-    @When("When. I request GET echo MESSAGE. Message = {string}.")
+    @When("I request GET echo MESSAGE. Message = {string}.")
     public void i_request_echo_message(String message) {
         logger.info("When stage. Message = " + message + ".");
         response = request.get("/"+ message);

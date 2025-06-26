@@ -65,3 +65,9 @@ RestAssured для request, response
     }
 
 ````
+
+Ручные тесты с помощью httpie:
+
+````shell
+$ https -v https://v.perm.ru:8443/api/echo/aaa
+````

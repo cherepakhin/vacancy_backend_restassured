@@ -2,8 +2,8 @@ Feature: Echo test
   I want to interact with the Vacancy REST API
 
   Scenario Outline: Send message and check return (tests with many examples)
-    Given Given. the Echo API is available. Message = "<send>".
-    When When. I request GET echo MESSAGE. Message = "<send>".
+    Given The Echo API is available. Message = "<send>".
+    When I request GET echo MESSAGE. Message = "<send>".
     Then The response equal "<answer>".
     And  Status OK.
     Examples:
@@ -13,8 +13,8 @@ Feature: Echo test
 
 
   Scenario: Send ONE message and check return with param. "TEST_MESSAGE" - param of test
-    Given Given. the Echo API is available. Message = "TEST_MESSAGE".
-    When When. I request GET echo MESSAGE. Message = "TEST_MESSAGE".
+    Given The Echo API is available. Message = "TEST_MESSAGE".
+    When I request GET echo MESSAGE. Message = "TEST_MESSAGE".
     Then The response equal "TEST_MESSAGE".
     And  Status OK.
 

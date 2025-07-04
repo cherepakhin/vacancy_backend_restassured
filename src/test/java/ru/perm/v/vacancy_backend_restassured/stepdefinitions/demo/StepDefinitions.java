@@ -1,16 +1,15 @@
 package ru.perm.v.vacancy_backend_restassured.stepdefinitions.demo;
 
 import io.cucumber.java.en.Given;
-import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 
 class IsItFriday {
     static String isItFriday(String today) {
-//        return null;
-//         return "Nope"; // так тест должен пройти
-        return today.equals("Friday")?"Yes":"No";
+        return today.equals("Friday") ? "Yes" : "No";
     }
 }
 

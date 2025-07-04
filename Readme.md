@@ -11,7 +11,7 @@ String BASE_URL = "http://127.0.0.1:8090/api";
 
 Используется RestAssured и Cucumber
 
-Прведение тестов:
+Проведение тестов:
 
 ````shell
 ./mvnw test

@@ -22,17 +22,18 @@ public class EchoSteps {
 
     Logger logger = LoggerFactory.getLogger(EchoSteps.class);
 
-    @Before
-    public void setup() {
-        RestAssured.baseURI = Setting.BASE_URL + "/echo";
-        logger.info("RestAssured.baseURI = " + RestAssured.baseURI);
-        request = given()
-                .header("Content-Type", "text/plain");
-    }
+//    @Before
+//    public void setup() {
+//        logger.info("Setup EchoSteps");
+//    }
 
     @Given("The Echo API is available. Message = {string}.") // string - указать тип
     public void the_vacancy_api_is_available(String message) {
         logger.info("Given stage: Message = " + message + ".");
+        RestAssured.baseURI = Setting.BASE_URL + "/echo";
+        logger.info("RestAssured.baseURI = " + RestAssured.baseURI);
+        request = given()
+                .header("Content-Type", "text/plain");
     }
 
     @When("I request GET echo MESSAGE. Message = {string}.")

@@ -2,40 +2,50 @@ package ru.perm.v.vacancy_backend_restassured.stepdefinitions;
 
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
-import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.junit.Assert;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.equalTo;
 
 // for test vacancy_api.feature
 public class VacancySteps {
 
-//  moved to Settings.java
+    //  moved to Settings.java
 //  private static final String BASE_URL = "http://127.0.0.1:8080/api/vacancy";
     private static final String BASE_URL = Setting.BASE_URL + "/vacancy";
     private Response response;
     private RequestSpecification request;
     private Map<String, String> newVacancyData;
     private Map<String, String> updatedVacancyData;
+    Logger logger = LoggerFactory.getLogger(VacancySteps.class);
 
-    @Before
-    public void setup() {
-        RestAssured.baseURI = BASE_URL;
-        request = given()
-            .header("Content-Type", "application/json")
-            .header("Accept", "application/json");
-    }
+//    @Before
+//    public void setup() {
+//        logger.info("Setup VacancySteps");
+//        RestAssured.baseURI = BASE_URL;
+//        request = given()
+//                .header("Content-Type", "application/json")
+//                .header("Accept", "application/json");
+//    }
 
     @Given("the Vacancy API is available")
     public void the_vacancy_api_is_available() {
+        logger.info("Setup VacancySteps");
+        RestAssured.baseURI = BASE_URL;
+        request = given()
+                .header("Content-Type", "application/json")
+                .header("Accept", "application/json");
+
         response = request.get("/");
         Assert.assertEquals(200, response.getStatusCode());
     }

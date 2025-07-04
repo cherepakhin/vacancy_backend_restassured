@@ -1,4 +1,4 @@
-Rest тесты для проекта vacancy_backend
+### Rest тесты для проекта vacancy_backend
 [vacancy_backend](https://github.com/cherepakhin/family/tree/master/src/main/resources/db/migration)
 
 Перед проведением тестов запустить проект [vacancy_backend](https://github.com/cherepakhin/family/tree/master/src/main/resources/db/migration).
@@ -9,7 +9,7 @@ Rest тесты для проекта vacancy_backend
 String BASE_URL = "http://127.0.0.1:8090/api";
 ````
 
-Используется RestAssured и Cucumber
+### Используется RestAssured и Cucumber
 
 Проведение тестов:
 
@@ -66,8 +66,28 @@ RestAssured для request, response
 
 ````
 
-Ручные тесты с помощью httpie:
+### Ручные тесты с помощью httpie
 
 ````shell
 $ https -v https://v.perm.ru:8443/api/echo/aaa
 ````
+
+### HTTPS
+
+Установить параметр __RestAssured.useRelaxedHTTPSValidation()__.
+
+Настройка:
+
+````java
+@Given("The Echo API is available. Message = {string}.") // string - указать тип
+public void the_vacancy_api_is_available(String message) {
+    logger.info("Given stage: Message = " + message + ".");
+    RestAssured.baseURI = Setting.BASE_URL + "/echo";
+    logger.info("RestAssured.baseURI = " + RestAssured.baseURI);
+    RestAssured.useRelaxedHTTPSValidation(); // SKIP SSL VERIFY !!!!
+    request = given()
+            .header("Content-Type", "text/plain");
+}
+````
+
+(см. EchoSteps.java)

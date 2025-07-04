@@ -32,6 +32,7 @@ public class EchoSteps {
         logger.info("Given stage: Message = " + message + ".");
         RestAssured.baseURI = Setting.BASE_URL + "/echo";
         logger.info("RestAssured.baseURI = " + RestAssured.baseURI);
+        RestAssured.useRelaxedHTTPSValidation(); // skip ssl verify
         request = given()
                 .header("Content-Type", "text/plain");
     }

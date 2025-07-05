@@ -27,6 +27,9 @@ String BASE_URL = "http://127.0.0.1:8090/api";
 
 Отчет о времени провежении тестов в target/test-results/timeline/index.html
 
+Вид в Idea:
+![Вид в Idea](doc/idea_report.png)
+
 Cucumber для Before, Given, Then, When:
 
 ````java
@@ -100,6 +103,6 @@ public void the_vacancy_api_is_available(String message) {
 
 ### Ссылки
 
-[https://cucumber.io/](https://cucumber.io/)
-[Cucumber 10-minute tutorial](https://cucumber.io/docs/guides/10-minute-tutorial/)
-[Integration testing bdd-style](https://www.codecrumbs.dev/posts/cucumber-integration-tests/)
+- [https://cucumber.io/](https://cucumber.io/)
+- [Cucumber 10-minute tutorial](https://cucumber.io/docs/guides/10-minute-tutorial/)
+- [Integration testing bdd-style](https://www.codecrumbs.dev/posts/cucumber-integration-tests/)

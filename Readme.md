@@ -19,6 +19,7 @@ String BASE_URL = "http://127.0.0.1:8090/api";
 
 Отчеты в target/cucumber-reports/cucumber.html
 ![Результаты тестов](doc/test_result.png "Результаты тестов")
+![Результаты тестов1](doc/cucumber_result.png "Результаты тестов")
 
 
 Cucumber для Before, Given, Then, When:

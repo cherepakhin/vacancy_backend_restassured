@@ -2,7 +2,6 @@ package ru.perm.v.vacancy_backend_restassured.stepdefinitions;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -10,12 +9,12 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.response.ResponseBody;
 import io.restassured.specification.RequestSpecification;
-import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.perm.v.vacancy_backend_restassured.company.CompanyDto;
 
 import static io.restassured.RestAssured.given;
+import static org.junit.Assert.assertEquals;
 
 public class CompanySteps {
     private static final String BASE_URL = Setting.BASE_URL;
@@ -44,7 +43,7 @@ public class CompanySteps {
         RequestSpecification request = RestAssured.given();
         response = request.get("/");
 
-        Assert.assertEquals(200, response.getStatusCode());
+        assertEquals(200, response.getStatusCode());
     }
 
     @When("I request company with id {int}")
@@ -75,6 +74,23 @@ public class CompanySteps {
 //        assert dto.name.equals(name);
     }
 
+    @When("I request ALL companies")
+    public void i_request_all_company() {
+        response = request.get("/");
+        logger.info(response.toString());
+    }
+
+    @Then("there are {int} companies in the response")
+    public void the_response_should_have_count(Integer count) throws JsonProcessingException {
+        logger.info("count: " + count);
+        ResponseBody body = response.body(); // почему то json пустой
+        ObjectMapper objectMapper = new ObjectMapper();
+        CompanyDto[] dtos = objectMapper.readValue(body.asString(), CompanyDto[].class);
+        for (CompanyDto dto : dtos) {
+            logger.info(dto.toString());
+        }
+        assertEquals(count.intValue(), dtos.length);
+    }
 
 }
 

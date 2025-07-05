@@ -6,7 +6,7 @@ import io.cucumber.java.en.When;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-
+// This is sample demo. Don't delete it
 class IsItFriday {
     static String isItFriday(String today) {
         return today.equals("Friday") ? "Yes" : "No";

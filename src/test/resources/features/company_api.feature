@@ -1,7 +1,7 @@
 Feature: Company API Operations
 
-#  Background:
-#    Given the Company API is available
+  Background:
+    Given the Company API is available
 
   Scenario: Get specific company
     When I request company with id 1

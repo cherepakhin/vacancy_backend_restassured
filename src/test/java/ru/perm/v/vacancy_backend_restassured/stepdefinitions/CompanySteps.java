@@ -50,6 +50,7 @@ public class CompanySteps {
     @When("I request company with id {int}")
     public void i_request_vacancy_with_id(Integer id) {
         response = request.get("/" + id);
+        logger.info(response.toString());
     }
 
     @Then("the response Company API status should be {int}")
@@ -65,10 +66,10 @@ public class CompanySteps {
 
     @Then("the response should have name {string}")
     public void the_response_should_have_name(String name) throws JsonProcessingException {
-        ResponseBody body = response.body();
+        ResponseBody body = response.body(); // почему то json пустой
         ObjectMapper objectMapper = new ObjectMapper();
-        assert "aaa".equals("bbb");
-        assert body.asString().equals(objectMapper.writeValueAsString(new CompanyDto(10000L, name)));
+
+        assert body.asString().equals(objectMapper.writeValueAsString(new CompanyDto(1L, name)));
 //        CompanyDto dto = objectMapper.readValue(body.asString(), CompanyDto.class);
 //        CompanyDto company = body.as(CompanyDto.class);
 //        assert dto.name.equals(name);

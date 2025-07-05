@@ -31,6 +31,7 @@ public class VacancySteps {
 
 //    @Before
 //    public void setup() {
+//        RestAssured.useRelaxedHTTPSValidation(); // skip ssl verify
 //        logger.info("Setup VacancySteps");
 //        RestAssured.baseURI = BASE_URL;
 //        request = given()
@@ -41,6 +42,7 @@ public class VacancySteps {
     @Given("the Vacancy API is available")
     public void the_vacancy_api_is_available() {
         logger.info("Setup VacancySteps");
+        RestAssured.useRelaxedHTTPSValidation(); // skip ssl verify
         RestAssured.baseURI = BASE_URL;
         request = given()
                 .header("Content-Type", "application/json")

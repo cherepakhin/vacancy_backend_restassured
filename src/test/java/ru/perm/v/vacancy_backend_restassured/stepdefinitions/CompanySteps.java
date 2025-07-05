@@ -57,21 +57,25 @@ public class CompanySteps {
         response.then().statusCode(statusCode); // проверка работает
     }
 
-    @Then("the response should have id {int}")
-    public void the_response_should_have_id(int id) {
-        response.getBody().asString().equals(""); // почему то json пустой
-//        response.then().body("id", equalTo(id));
+    @Then("the response should have id {long}")
+    public void the_response_should_have_id(Long id) throws JsonProcessingException {
+        ResponseBody<?> body = response.body();
+        ObjectMapper objectMapper = new ObjectMapper();
+        CompanyDto dto = objectMapper.readValue(body.asString(), CompanyDto.class);
+
+        assertEquals(id, dto.getN());
     }
 
     @Then("the response should have name {string}")
     public void the_response_should_have_name(String name) throws JsonProcessingException {
-        ResponseBody body = response.body(); // почему то json пустой
+        ResponseBody<?> body = response.body();
         ObjectMapper objectMapper = new ObjectMapper();
+        CompanyDto dto = objectMapper.readValue(body.asString(), CompanyDto.class);
 
-        assert body.asString().equals(objectMapper.writeValueAsString(new CompanyDto(1L, name)));
-//        CompanyDto dto = objectMapper.readValue(body.asString(), CompanyDto.class);
-//        CompanyDto company = body.as(CompanyDto.class);
-//        assert dto.name.equals(name);
+        assertEquals(name, dto.getName());
+
+        CompanyDto dtoOther = body.as(CompanyDto.class); // так тоже можно сконвертировать
+        assertEquals(name, dtoOther.getName());
     }
 
     @When("I request ALL companies")

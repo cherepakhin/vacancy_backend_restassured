@@ -99,7 +99,7 @@ public void the_vacancy_api_is_available(String message) {
 }
 ````
 
-(см. EchoSteps.java)
+(см. [EchoSteps.java](src/test/ru/perm/v/vacancy_backend_restassured/stepdefinitions/EchoSteps.java))
 
 ### Ссылки
 

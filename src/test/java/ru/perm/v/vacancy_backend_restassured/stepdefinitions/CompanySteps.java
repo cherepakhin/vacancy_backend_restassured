@@ -22,6 +22,8 @@ public class CompanySteps {
     private Response response;
     Logger logger = LoggerFactory.getLogger(CompanySteps.class);
 
+// Комментарий не удалять
+// Так тоже можно, но перенес в Background "the Company API is available"
 //    @Before
 //    public void setup() {
 //        logger.info("Setup CompanySteps");
@@ -87,7 +89,7 @@ public class CompanySteps {
     @Then("there are {int} companies in the response")
     public void the_response_should_have_count(Integer count) throws JsonProcessingException {
         logger.info("count: " + count);
-        ResponseBody body = response.body(); // почему то json пустой
+        ResponseBody<?> body = response.body();
         ObjectMapper objectMapper = new ObjectMapper();
         CompanyDto[] dtos = objectMapper.readValue(body.asString(), CompanyDto[].class);
         for (CompanyDto dto : dtos) {

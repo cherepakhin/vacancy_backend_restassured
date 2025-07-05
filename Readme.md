@@ -11,6 +11,8 @@ String BASE_URL = "http://127.0.0.1:8090/api";
 
 ### Используется RestAssured и Cucumber
 
+С помощью RestAssured делаются HTTP-запросы. С помощью Cucumber общая оршанизация тестов и получение отчетов.
+
 Проведение тестов:
 
 ````shell
@@ -95,3 +97,9 @@ public void the_vacancy_api_is_available(String message) {
 ````
 
 (см. EchoSteps.java)
+
+### Ссылки
+
+[https://cucumber.io/](https://cucumber.io/)
+[Cucumber 10-minute tutorial](https://cucumber.io/docs/guides/10-minute-tutorial/)
+[Integration testing bdd-style](https://www.codecrumbs.dev/posts/cucumber-integration-tests/)

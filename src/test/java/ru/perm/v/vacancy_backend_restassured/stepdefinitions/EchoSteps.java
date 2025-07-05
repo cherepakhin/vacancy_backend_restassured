@@ -22,10 +22,10 @@ public class EchoSteps {
 
     Logger logger = LoggerFactory.getLogger(EchoSteps.class);
 
-//    @Before
-//    public void setup() {
-//        logger.info("Setup EchoSteps");
-//    }
+    @Before
+    public void setup() {
+        logger.info("Setup EchoSteps");
+    }
 
     @Given("The Echo API is available. Message = {string}.") // string - указать тип
     public void the_vacancy_api_is_available(String message) {

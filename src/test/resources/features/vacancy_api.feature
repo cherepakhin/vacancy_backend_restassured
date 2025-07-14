@@ -15,7 +15,7 @@ Feature: Vacancy API Operations
   Scenario: Retrieve all vacancies
     When I request all vacancies
     Then the response status should be 200
-    And the response should contain 5 vacancies
+    And the response should contain 6 vacancies
     And vacancy 1 should have title "Vacancy 1 Company 1"
     And vacancy 2 should have title "Vacancy 2 Company 1"
 

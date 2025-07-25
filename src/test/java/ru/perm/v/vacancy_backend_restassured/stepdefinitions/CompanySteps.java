@@ -49,10 +49,13 @@ public class CompanySteps {
     }
 
     @When("I request company with id {int}")
-    public void i_request_vacancy_with_id(Integer id) {
+    public void i_request_company_with_id(Integer id) {
+        RestAssured.baseURI = BASE_URL + "/company";
+        logger.info(RestAssured.baseURI);
         response = request.get("/" + id);
         logger.info(response.toString());
     }
+
 
     @Then("the response Company API status should be {int}")
     public void the_response_status_should_be(Integer statusCode) {
@@ -61,10 +64,12 @@ public class CompanySteps {
 
     @Then("the response should have id {long}")
     public void the_response_should_have_id(Long id) throws JsonProcessingException {
+        logger.info("test id: " + id);
         ResponseBody<?> body = response.body();
+        logger.info(body.asString());
         ObjectMapper objectMapper = new ObjectMapper();
         CompanyDto dto = objectMapper.readValue(body.asString(), CompanyDto.class);
-
+        logger.info(dto.toString());
         assertEquals(id, dto.getN());
     }
 

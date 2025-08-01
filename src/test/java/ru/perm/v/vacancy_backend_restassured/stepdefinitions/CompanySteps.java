@@ -11,7 +11,7 @@ import io.restassured.response.ResponseBody;
 import io.restassured.specification.RequestSpecification;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.perm.v.vacancy_backend_restassured.company.CompanyDto;
+import ru.perm.v.vacancy_backend_restassured.dto.CompanyDto;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;

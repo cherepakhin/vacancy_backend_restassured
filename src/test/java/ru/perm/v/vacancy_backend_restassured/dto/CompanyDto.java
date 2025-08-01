@@ -1,4 +1,4 @@
-package ru.perm.v.vacancy_backend_restassured.company;
+package ru.perm.v.vacancy_backend_restassured.dto;
 
 import java.io.Serializable;
 import java.util.Objects;

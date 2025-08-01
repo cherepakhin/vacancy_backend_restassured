@@ -6,6 +6,8 @@ Feature: Vacancy API Operations
     And the response should contain 4 vacancies
     And vacancy 0 should have name "NAME_VACANCY_1_COMPANY_1"
     And vacancy 1 should have name "NAME_VACANCY_2_COMPANY_1"
+    And vacancy 2 should have name "NAME_VACANCY_1_COMPANY_2"
+    And vacancy 3 should have name "NAME_VACANCY_1_COMPANY_3"
 
   Scenario: Get vacancy1
     When I request vacancy with id 1

@@ -25,6 +25,8 @@ String BASE_URL = "http://127.0.0.1:8090/api";
 ![Продолжительность тестов](doc/cucumber_timeline.png "Продолжительность тестов")
 ![Продолжительность одного из тестов](doc/cucumber_timeline_one_test.png "Продолжительность одного из тестов")
 
+(можно смотреть Allure report. См. ниже)
+
 Отчет о времени провежении тестов в target/test-results/timeline/index.html
 
 Вид в Idea:
@@ -100,6 +102,26 @@ public void the_vacancy_api_is_available(String message) {
 ````
 
 (см. [EchoSteps.java](https://github.com/cherepakhin/vacancy_backend_restassured/blob/master/src/test/java/ru/perm/v/vacancy_backend_restassured/stepdefinitions/EchoSteps.java))
+
+### Allure report
+
+[https://github.com/allure-framework/allure3](https://github.com/allure-framework/allure3)
+[Allure-framework. Часть 1][https://habr.com/ru/companies/sberbank/articles/358836/]
+
+Установка:
+
+````shell
+sudo apt install default-jre-headless
+sudo dpkg -i allure_2.34.1-1_all.deb
+````
+
+Просмотр отчетов (после выполнения тестов):
+
+````shell
+./`allure serve target/surefire-reports/`
+````
+
+![Отчет Allure](doc/allure_results.png "allure results")
 
 ### Ссылки
 

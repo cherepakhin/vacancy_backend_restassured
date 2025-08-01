@@ -13,3 +13,8 @@ Feature: Company API Operations
     When I request ALL companies
     Then the response Company API status should be 200
     And there are 4 companies in the response
+
+  Scenario: Search company by criteria
+    When I search company by criteria
+    Then the response Company API status should be 200
+    And company 0 should have name "COMPANY_1"

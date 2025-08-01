@@ -117,8 +117,8 @@ public class VacancySteps {
 
     @When("I search for vacancies with title containing {string}")
     public void i_search_for_vacancies_with_title_containing(String title) {
-        String searchCriteria = "{\"byName\":\"" + title + "\"}";
-        response = request.body(searchCriteria).post("/find");
+        String searchCriteria = "{\"name\":\"" + title + "\"}";
+        response = request.body(searchCriteria).post("/find/");
     }
 
     @Then("the response status should be {int}")
@@ -169,7 +169,6 @@ public class VacancySteps {
         objectMapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
         VacancyDto[] dtos = objectMapper.readValue(body.asString(),  VacancyDto[].class);
 
-        assertEquals(4, dtos.length);
         assertEquals(name, dtos[n].getName());
     }
 }

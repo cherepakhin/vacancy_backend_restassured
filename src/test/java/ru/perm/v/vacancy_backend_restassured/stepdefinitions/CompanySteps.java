@@ -13,6 +13,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.perm.v.vacancy_backend_restassured.dto.CompanyDto;
 
+import java.util.Optional;
+
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
@@ -101,6 +103,41 @@ public class CompanySteps {
             logger.info(dto.toString());
         }
         assertEquals(count.intValue(), dtos.length);
+    }
+
+    @When("I search company by criteria")
+    public void searchCompanyByCriteria() {
+//        RestAssured.baseURI = BASE_URL + "/company/find/";
+//        logger.info("URL: "+RestAssured.baseURI);
+        logger.info("BEFORE=========================");
+        response = request.body("{ \"n\": 1, \"name\": \"COMPANY_1\"}").put("http://127.0.0.1:8980/vacancy/api/company/find/");
+        logger.info("RESPONSE=========================");
+        logger.info(response.print());
+    }
+    @Then("the response should contain {int} company")
+    public void theResponseShouldContainCompany(Integer count) throws Exception {
+        if(count==null || count<=0) {
+            throw new Exception("Count not defined");
+        }
+        ResponseBody<?> body = response.body();
+        ObjectMapper objectMapper = new ObjectMapper();
+        CompanyDto[] dtos = objectMapper.readValue(body.asString(), CompanyDto[].class);
+
+        if(dtos == null) {
+            throw new Exception("dtos is null");
+
+        }
+
+        assertEquals(count, Optional.of(dtos.length));
+    }
+
+    @Then("company {int} should have name {string}")
+    public void companyShouldHaveName(Integer idx, String name) throws JsonProcessingException {
+        ResponseBody<?> body = response.body();
+        ObjectMapper objectMapper = new ObjectMapper();
+        CompanyDto[] dtos = objectMapper.readValue(body.asString(), CompanyDto[].class);
+
+        assertEquals(name, dtos[idx].getName());
     }
 
 }

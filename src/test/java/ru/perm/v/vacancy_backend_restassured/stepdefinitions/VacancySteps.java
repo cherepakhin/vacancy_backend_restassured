@@ -169,7 +169,7 @@ public class VacancySteps {
         objectMapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
         VacancyDto[] dtos = objectMapper.readValue(body.asString(),  VacancyDto[].class);
 
-        assertEquals(1, dtos.length);
-        assertEquals(name, dtos[0].getName());
+        assertEquals(4, dtos.length);
+        assertEquals(name, dtos[n].getName());
     }
 }

@@ -117,7 +117,7 @@ public class VacancySteps {
 
     @When("I search for vacancies with title containing {string}")
     public void i_search_for_vacancies_with_title_containing(String title) {
-        String searchCriteria = "{\"name\":\"" + title + "\"}";
+        String searchCriteria = "{\"byTitle\":\"" + title + "\"}";
         response = request.body(searchCriteria).post("/find/");
     }
 

@@ -4,10 +4,10 @@ Feature: Vacancy API Operations
     When I request all vacancies
     Then the response status should be 200
     And the response should contain 4 vacancies
-    And vacancy 0 should have title "NAME_VACANCY_1_COMPANY_1"
-    And vacancy 1 should have title "NAME_VACANCY_2_COMPANY_1"
-    And vacancy 2 should have title "NAME_VACANCY_1_COMPANY_2"
-    And vacancy 3 should have title "NAME_VACANCY_1_COMPANY_3"
+    And vacancy 0 should have title "Vacancy 1 Company 1"
+    And vacancy 1 should have title "Vacancy 2 Company 1"
+    And vacancy 2 should have title "Vacancy 1 Company 2"
+    And vacancy 3 should have title "Vacancy 2 Company 2"
 
   Scenario: Get vacancy with id=1
     When I request vacancy with id 1
@@ -18,7 +18,7 @@ Feature: Vacancy API Operations
     When I search for vacancies with title containing "Vacancy 1 Company 1"
     Then the response status should be 200
     And the response should contain 1 vacancies
-    And vacancy 0 should have title "NAME_VACANCY_1_COMPANY_1"
+    And vacancy 0 should have title "Vacancy 1 Company 1"
 
   Scenario: Search vacancies by criteria "Vacancy 1 Company 2"
     When I search for vacancies with title containing "NAME_VACANCY_1_COMPANY_2"

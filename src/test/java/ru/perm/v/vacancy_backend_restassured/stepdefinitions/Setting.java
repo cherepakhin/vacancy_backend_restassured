@@ -5,5 +5,5 @@ public interface Setting {
 //    String BASE_URL = "https://v.perm.ru:8443/api";
 
 //  for local
-    String BASE_URL = "http://127.0.0.1:8980/vacancy/api";
+    String BASE_URL = "https://127.0.0.1:8443/api";
 }

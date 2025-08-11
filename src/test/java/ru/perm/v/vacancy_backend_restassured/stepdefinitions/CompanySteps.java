@@ -110,10 +110,12 @@ public class CompanySteps {
 //        RestAssured.baseURI = BASE_URL + "/company/find/";
 //        logger.info("URL: "+RestAssured.baseURI);
         logger.info("BEFORE=========================");
-        response = request.body("{ \"n\": 1, \"name\": \"COMPANY_1\"}").put("http://127.0.0.1:8980/vacancy/api/company/find/");
+//        response = request.body("{ \"n\": 1, \"name\": \"COMPANY_1\"}").put("https://127.0.0.1:8443/vacancy/api/company/find/");
+        response = request.body("{ \"n\": 1, \"name\": \"Company 1\"}").post("/find");
         logger.info("RESPONSE=========================");
         logger.info(response.print());
     }
+
     @Then("the response should contain {int} company")
     public void theResponseShouldContainCompany(Integer count) throws Exception {
         if(count==null || count<=0) {

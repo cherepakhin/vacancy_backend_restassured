@@ -21,10 +21,10 @@ Feature: Vacancy API Operations
     And vacancy 0 should have title "Vacancy 1 Company 1"
 
   Scenario: Search vacancies by criteria "Vacancy 1 Company 2"
-    When I search for vacancies with title containing "NAME_VACANCY_1_COMPANY_2"
+    When I search for vacancies with title containing "Vacancy 1 Company 2"
     Then the response status should be 200
     And the response should contain 1 vacancies
-    And vacancy 0 should have title "NAME_VACANCY_1_COMPANY_2"
+    And vacancy 0 should have title "Vacancy 1 Company 2"
 
 #  Scenario: Create new vacancy
 #    Given I have a new vacancy with:

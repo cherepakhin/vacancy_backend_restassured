@@ -162,13 +162,13 @@ public class VacancySteps {
         VacancyDto dto = objectMapper.readValue(body.asString(), VacancyDto.class);
     }
 
-    @Then("vacancy {int} should have name {string}")
-    public void vacancyShouldHaveName(Integer n, String name) throws JsonProcessingException {
+    @Then("vacancy {int} should have title {string}")
+    public void vacancyShouldHaveTitle(Integer n, String title) throws JsonProcessingException {
         ResponseBody<?> body = response.body();
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
         VacancyDto[] dtos = objectMapper.readValue(body.asString(),  VacancyDto[].class);
 
-        assertEquals(name, dtos[n].getName());
+        assertEquals(title, dtos[n].getTitle());
     }
 }

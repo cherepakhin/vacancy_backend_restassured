@@ -1,7 +1,6 @@
 package ru.perm.v.vacancy_backend_restassured.stepdefinitions;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.cucumber.java.en.Given;
@@ -14,7 +13,6 @@ import io.restassured.specification.RequestSpecification;
 import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.perm.v.vacancy_backend_restassured.dto.CompanyDto;
 import ru.perm.v.vacancy_backend_restassured.dto.VacancyDto;
 
 import java.util.List;
@@ -117,8 +115,13 @@ public class VacancySteps {
 
     @When("I search for vacancies with title containing {string}")
     public void i_search_for_vacancies_with_title_containing(String title) {
+        RestAssured.useRelaxedHTTPSValidation(); // skip ssl verify
+        RestAssured.baseURI = BASE_URL + "/vacancy";
+        request = given()
+                .header("Content-Type", "application/json")
+                .header("Accept", "application/json");
         String searchCriteria = "{\"byTitle\":\"" + title + "\"}";
-        response = request.body(searchCriteria).post("/find/");
+        response = request.body(searchCriteria).post("/find");
     }
 
     @Then("the response status should be {int}")
